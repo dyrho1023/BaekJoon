@@ -27,9 +27,21 @@ n을 d(n)의 생성자라고 한다.
 10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
 """
 
-def solve(a):
-    ans = sum(a)
-    return ans
+indexList = [0 for i in range(10001)]
+i = 1
+
+for i in range(1, 10001):
+    result = i + sum(list(map(int, str(i))))
+    if result < 10001:
+            indexList[result] = 1
+
+for i in range(1, 10001):
+    if indexList[i] == 0:
+        print(i)
+
+
+
+
 
 
 
