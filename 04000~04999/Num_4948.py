@@ -20,38 +20,23 @@
 """
 
 import sys
-import math
 
 inputFast = sys.stdin.readline
 
-result = []
-inputOrder = []
-
-in1 = int(inputFast())
-in2 = math.sqrt(in1)
-
-location = [[0 for _ in range(3) for _ in range (3)]]
-
-
-def StartPrint(inputValue, input1, input2, input3):
-    if inputValue == 1:
-        out[0] = "1"
-        out[1] = "0"
-        out[2] = "1"
-        return out
+while(True):
+    in1 = int(inputFast())
+    if in1 == 0:
+        break
+    elif in1 == 1:
+        print("1")
     else:
-        for i in range(3):
-            for j in range(3):
-                location[i][j] = StartPrint(in1/3)
-
-
-for i in range(3):
-    for j in range(3):
-        location[i][j] = StartPrint(in1)
-
-
-
-
-
-
-
+        primeIndex = [0 for i in range(2*in1 + 1)]
+        count = 0
+        for i in range(2, int((2*in1)**0.5)+1):
+            if (primeIndex[i] == 0):
+                for j in range(2, (2*in1)//i+1):
+                    primeIndex[i*j] = 1
+        for i in range(in1+1, 2*in1+1):
+            if primeIndex[i] == 0:
+                count += 1
+        print(count)
