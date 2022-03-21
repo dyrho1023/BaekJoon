@@ -20,38 +20,31 @@ N이 3보다 클 경우, 크기 N의 패턴은 공백으로 채워진 가운데�
 """
 
 import sys
-import math
 
 inputFast = sys.stdin.readline
 
-result = []
-inputOrder = []
 
 in1 = int(inputFast())
-in2 = math.sqrt(in1)
 
-location = [[0 for _ in range(3) for _ in range (3)]]
+check = 1
+count = 0
+
+for i in range(9):
+    check = check*3
+    if check == in1:
+        count = i+1
+        break
+
+print(count)
 
 
-def StartPrint(inputValue, input1, input2, input3):
-    if inputValue == 1:
-        out[0] = "1"
-        out[1] = "0"
-        out[2] = "1"
-        return out
+def printingStar(current, array, count):
+    if current == count:
+        array = [[1],[0],[1]]
     else:
         for i in range(3):
             for j in range(3):
-                location[i][j] = StartPrint(in1/3)
-
-
-for i in range(3):
-    for j in range(3):
-        location[i][j] = StartPrint(in1)
-
-
-
-
-
-
-
+                if (i == j) & (i != 1):
+                    array[i][j] = 0
+                else:
+                    array[i][j] = 1
