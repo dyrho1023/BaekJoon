@@ -46,14 +46,14 @@ for i in range(6):
 maxIndex = in1.index(max(in1))
 maxValue = max(in1)
 
-if in1[maxIndex-1] > in1[(maxIndex+1)%6]:
+if in1[maxIndex-1] > in1[(maxIndex+1) % 6]:
     longValue = in1[maxIndex-1]
-    shortValue = in1[(maxIndex+1)%6]
+    shortValue = in1[(maxIndex+1) % 6]
     lastValue = in1[maxIndex-2]
 else:
     shortValue = in1[maxIndex-1]
-    longValue = in1[(maxIndex+1)%6]
-    lastValue = in1[(maxIndex+2)%6]
+    longValue = in1[(maxIndex+1) % 6]
+    lastValue = in1[(maxIndex+2) % 6]
 
 # print(maxIndex, longValue, shortValue, lastValue)
 
