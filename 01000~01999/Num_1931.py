@@ -20,38 +20,17 @@ import sys
 
 inputFast = sys.stdin.readline
 
-in0 = int(inputFast().split())
-in1 = list(map(int, inputFast().split()))
+in0 = int(inputFast())
+in1 = []
+for i in range(in0):
+    in1.append(list(map(int, inputFast().split())))
+
+in2 = sorted(in1)
+
+for i in range(in0):
 
 
-def BinaryBoundSearch(targetList, targetValue, start, end):
-    upperIndex = UpperBoundarySearch(targetList, targetValue, start, end)
-    return upperIndex
+print(in1)
+print(sorted(in1))
 
 
-def UpperBoundarySearch(targetList, targetValue, start, end):
-    while(True):
-        mid = (start + end) // 2
-        tree = 0
-        for i in in1:
-            if i > mid:
-                tree += (i-mid)
-            else:
-                tree = tree
-        # print(tree, start, mid, end, targetValue)
-        if tree >= targetValue:
-            start = mid + 1
-        elif tree < targetValue:
-            end = mid
-
-        if (start >= end):
-            return start -1
-
-
-start = 0
-end = 1000000000
-targetValue = in0[1]
-
-result = BinaryBoundSearch(in1, targetValue, start, end)
-
-print(result)
